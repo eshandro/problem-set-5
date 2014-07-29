@@ -2,7 +2,7 @@
 // take string and return it in alphabetical order
 var alphabetSoup = function(str) {
 	var strList = str.split('');
-	var answer = _.sortBy(strList);
+	var answer = strList.sort();)
 	return answer.join('');
 }
 var str1 = 'hello';
