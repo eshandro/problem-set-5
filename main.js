@@ -27,3 +27,14 @@ console.log(alphabetSoup(str2));
 console.log(alphabetSoup(str3));
 
 // Problem 2 - vowelCount
+var vowelCount = function(str) {
+	var vowels = { a:1, e:1, i:1, o:1, u:1, A:1, E:1, I:1, O:1, U:1}
+	var counter = 0;
+	for (var i=0; i < str.length; i++) {
+		if(str.charAt(i) in vowels) {
+			counter++
+		}
+	}
+	return counter;
+}
+console.log('Vowel count: '    + vowelCount('All cows eat grass'));
