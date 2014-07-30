@@ -43,15 +43,23 @@ console.log('Vowel count: '  + vowelCount('All cows eat grass'));
 var coinDeterminer = function(number) {
 	var coinValues = [1, 5, 7, 9, 11];
 	var counter = 0;
-	var total = 0;
 	var workingNumber = number;
 	for(i=coinValues.length-1; i >=0; i--) {
-		if(total !== number) {
-			var currentCoinCount = workingNumber/coinValues[i];
-			total += coinValues[i] * currentCoinCount;
-			counter += currentCoinCount;
-			workingNumber = workingNumber - (coinValues[i]*currentCoinCount);
+		if(workingNumber > 0) {
+			var currentCoinCount = Math.floor(workingNumber/coinValues[i]);
+			if (currentCoinCount > 0) {
+				if (workingNumber % (currentCoinCount*coinValues[i]) === 3) {
+					currentCoinCount -= 1;
+					counter += currentCoinCount;
+					workingNumber = workingNumber - coinValues[i]*currentCoinCount;
+				}
+				else {
+				counter += currentCoinCount;
+				workingNumber = workingNumber - (coinValues[i]*currentCoinCount);
+				}
+			}
 		}
-			console.log(total, counter, number)
+		console.log(counter, workingNumber)
 	}
+	return counter;
 }
