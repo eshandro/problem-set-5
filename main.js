@@ -59,7 +59,6 @@ var coinDeterminer = function(number) {
 				}
 			}
 		}
-		console.log(counter, workingNumber)
 	}
 	return counter;
 }
