@@ -37,4 +37,21 @@ var vowelCount = function(str) {
 	}
 	return counter;
 }
-console.log('Vowel count: '    + vowelCount('All cows eat grass'));
+console.log('Vowel count: '  + vowelCount('All cows eat grass'));
+
+// Problem 3 - Bonus - coinDeterminer
+var coinDeterminer = function(number) {
+	var coinValues = [1, 5, 7, 9, 11];
+	var counter = 0;
+	var total = 0;
+	var workingNumber = number;
+	for(i=coinValues.length-1; i >=0; i--) {
+		if(total !== number) {
+			var currentCoinCount = workingNumber/coinValues[i];
+			total += coinValues[i] * currentCoinCount;
+			counter += currentCoinCount;
+			workingNumber = workingNumber - (coinValues[i]*currentCoinCount);
+		}
+			console.log(total, counter, number)
+	}
+}
